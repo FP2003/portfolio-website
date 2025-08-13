@@ -6,6 +6,7 @@ import { motion } from 'motion/react'
 import NavBar from '../components/NavBar'
 import LoginScreen from '../components/LoginScreen'
 import Footer from '../components/Footer'
+import About from '@/components/About'
 
 export default function FrontPage() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -84,15 +85,7 @@ export default function FrontPage() {
     switch (currentPage) {
       case 'about':
         return (
-          <motion.div
-            initial={{ opacity: 0, translateY: 20 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-red-500"
-          >
-            <h1 className="text-4xl font-mono mb-4">About Directory</h1>
-            <p>About page content will go here...</p>
-          </motion.div>
+          <About onReturn={() => setCurrentPage(null)}/>
         )
       case 'projects':
         return (
