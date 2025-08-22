@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 :root {
+  /* Font families from Google Fonts */
+  --font-play: 'Play', 'Segoe UI', system-ui, sans-serif;
+  --font-fira: 'Fira Code', 'Menlo', 'Monaco', 'Consolas', monospace;
+  --font-quicksand: 'Quicksand', 'Segoe UI', system-ui, sans-serif;
   /* Arasaka Corporate Color Palette */
   --color-primary: hsl(0, 0%, 95%); /* Near white for primary text */
   --color-secondary: hsl(0, 0%, 8%); /* Deep black for backgrounds */
@@ -36,7 +40,21 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-quicksand), var(--font-play), var(--font-fira), var(--font-sans);
+/* Tailwind utilities for fonts */
+.font-play {
+  font-family: var(--font-play);
+}
+.font-fira {
+  font-family: var(--font-fira);
+}
+.font-quicksand {
+  font-family: var(--font-quicksand);
+}
+/* Tailwind utility for Play font */
+.font-play {
+  font-family: var(--font-play);
+}
   /* Subtle texture for that corporate feel */
   background-image: 
     radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0);
