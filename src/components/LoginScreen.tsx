@@ -110,7 +110,7 @@ export default function LoginScreen({ passwordText, showCursor, onProceed }: Log
   return (
     <div
       ref={containerRef}
-      className="text-center select-none"
+      className="text-center select-none font-play"
       aria-live="polite"
       role="region"
       aria-label="Arasaka login boot panel"
@@ -118,27 +118,27 @@ export default function LoginScreen({ passwordText, showCursor, onProceed }: Log
     >
       <div
         ref={panelRef}
-        className="relative mx-auto bg-black/80 border-2 border-red-600/50 p-8 max-w-3xl min-w-2xl w-full backdrop-blur-sm"
+        className="relative mx-auto bg-black/80 border-2 border-[#FF003C]/50 p-8 max-w-3xl min-w-2xl w-full backdrop-blur-sm"
       >
-        <div className="font-mono text-sm text-left mb-6 space-y-1">
-          <div className="text-red-500">
+        <div className="font-play text-sm text-left mb-6 space-y-1">
+          <div className="text-[#FF003C]">
             {/* Mark with data-scramble so it participates in startup animation */}
             <span data-scramble>&gt; ARASAKA SECURITY PROTOCOL ACTIVE</span>
           </div>
 
-          <div className="text-gray-400">
+          <div className="text-[#00F0FF]">
             <span data-scramble>&gt; Neural interface detected...</span>
           </div>
-          <div className="text-gray-400">
+          <div className="text-[#00F0FF]">
             <span data-scramble>&gt; Awaiting authorization...</span>
           </div>
         </div>
 
-        <div className="border-t border-red-600/30 pt-4 mt-2">
-          <div className="text-white mb-2">
+        <div className="border-t border-[#FF003C]/30 pt-4 mt-2">
+          <div className="text-[#00F0FF] mb-2">
             <span data-scramble>ENTER_PASSWORD:</span>
           </div>
-          <div className="bg-black/60 p-3 border border-red-600/30 min-h-[40px] text-red-400 font-bold">
+          <div className="bg-black/60 p-3 border border-[#FF003C]/30 min-h-[40px] text-[#FF003C] font-bold font-play">
             {/* Don't scramble the live password field */}
             {passwordText}
             <span className={`ml-1 transition-opacity ${showCursor ? "opacity-100" : "opacity-0"}`}>▓</span>
@@ -146,15 +146,15 @@ export default function LoginScreen({ passwordText, showCursor, onProceed }: Log
         </div>
 
         <div className="text-center mt-6">
-          <div className="text-xs text-gray-500 mb-4">
+          <div className="text-xs text-gray-500 mb-4 font-play">
             {/* This will also scramble on load, then act as the ready prompt */}
             <span ref={promptRef} data-scramble>[ PRESS ANY KEY TO INITIALIZE ]</span>
           </div>
 
-          <div className="flex justify-center space-x-6 text-xs font-mono">
+          <div className="flex justify-center space-x-6 text-xs font-play">
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-red-500 animate-pulse" />
-              <span className="text-red-400" data-scramble>SECURE</span>
+              <div className="w-2 h-2 bg-[#FF003C] animate-pulse" />
+              <span className="text-[#FF003C]" data-scramble>SECURE</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 bg-yellow-500 animate-pulse" />
