@@ -13,7 +13,7 @@ export default function About({onReturn}: AboutProps) {
   const [currentSection, setCurrentSection] = useState(0)
   const [showCursor, setShowCursor] = useState(true)
 
-  const bioText = "Neural interface specialist with extensive experience in cybersecurity and systems architecture. Authorized for Level-7 clearance operations across multiple corporate networks."
+  const bioText = "Computer science graduate with hands-on experience in web development, data analytics, and software development. Passionate about emerging technologies like machine learning and scalable systems, and eager to contribute to innovative projects while expanding expertise."
 
   // Typing effect for bio
   useEffect(() => {
@@ -39,30 +39,49 @@ export default function About({onReturn}: AboutProps) {
   }, [])
 
   const skills = [
-    { name: 'Neural Networks', level: 95, category: 'AI/ML' },
-    { name: 'Cybersecurity', level: 88, category: 'Security' },
-    { name: 'React/Next.js', level: 92, category: 'Frontend' },
-    { name: 'Node.js/Python', level: 89, category: 'Backend' },
-    { name: 'Database Systems', level: 85, category: 'Data' },
-    { name: 'Cloud Architecture', level: 87, category: 'Infrastructure' }
+    { name: 'Python', level: 78, category: 'Language' },
+    { name: 'Windows/Linux/MacOS', level: 80, category: 'Operating Systems' },
+    { name: 'React/Next.js [ Typescript ]', level: 84, category: 'Frontend' },
+    { name: 'Java', level: 55, category: 'Language' },
   ]
 
   const experience = [
     {
-      title: 'Senior Systems Architect',
-      company: 'Arasaka Corporation',
-      period: '2023 - Present',
-      clearance: 'Level-7',
-      duties: ['Neural interface development', 'Security protocol implementation', 'System optimization']
+      title: 'Global Technical Integration Assistant',
+      company: 'Awin',
+      period: '2023 - 2024',
+      clearance: 'Affiliate Marketing',
+      duties: ['Expertise in sales attribution systems (server-to-server tracking, Moonpull, Awin).', 'Proficient with Asana, Salesforce, and Jira for efficient project and task management.', 'Integrated XML/CSV product feeds and configured 35+ client accounts monthly.', 'Supported 50+ clients with fast troubleshooting and tailored solutions.', 'Created Polish-language documentation and onboarding guides, improving accessibility and training.']
     },
     {
-      title: 'Lead Developer',
-      company: 'Netrunner Solutions',
-      period: '2021 - 2023',
-      clearance: 'Level-5',
-      duties: ['Full-stack development', 'Team leadership', 'Client consultation']
+      title: 'Graphic Design Assistant',
+      company: 'Audiografix',
+      period: '2020',
+      clearance: 'Graphic Web Design',
+      duties: ['Created 20+ website and logo sketches using Illustrator and Photoshop.', 'Collaborated with teams to refine 10+ final designs.', 'Researched industry trends to enhance design quality.']
+    },
+    {
+      title: 'Data Entry',
+      company: 'ETB Management',
+      period: 'August 2018',
+      clearance: 'Estate Agency',
+      duties: ['Updated data for 500+ properties in Excel, improving accuracy and reporting efficiency.', 'Tracked potential properties from online portals under strict criteria.', 'Ensured confidentiality and compliance when handling sensitive data.']
     }
   ]
+
+    const education = [
+      {
+        degree: 'Bachelor of Science in Computer Science with Year In Industry',
+        institution: 'University of Leicester',
+        results: 'First Class Honours',
+        year: '2021-2025'
+      },
+      {
+        degree: 'Computer Science, Mathematics and Economics',
+        institution: 'Fortismere',
+        year: '2019-2021'
+      }
+    ]
 
   return (
     <div className="min-h-screen bg-black text-red-500 font-mono p-6 min-w-screen">
@@ -210,12 +229,53 @@ export default function About({onReturn}: AboutProps) {
           </motion.div>
         )}
 
-        {/* System Specs */}
+        {/* Education Section */}
         {currentSection >= 1 && (
           <motion.div
             initial={{ opacity: 0, translateY: 20 }}
             animate={{ opacity: 1, translateY: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
+            className="border border-red-400/30 bg-black/80 backdrop-blur-sm mb-6"
+          >
+            <div className="flex items-center px-4 py-2 border-b border-red-400/30 bg-red-900/10">
+              <Shield className="w-4 h-4 mr-2" />
+              <span className="text-sm">EDUCATION</span>
+            </div>
+            <div className="p-6 space-y-6">
+              {education.map((edu, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, translateY: 20 }}
+                  animate={{ opacity: 1, translateY: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 * index }}
+                  className="border-l-4 border-red-500/30 pl-6 space-y-2"
+                >
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="text-red-400 font-semibold">{edu.degree}</h3>
+                      <p className="text-red-300">{edu.institution}</p>
+                      {edu.results && (
+                        <div className="text-red-500 text-xs border border-red-500/50 px-2 py-1 mt-1 inline-block">
+                          {edu.results}
+                        </div>
+                      )}
+                    </div>
+                    <div className="text-right">
+                      <div className="text-gray-400 text-sm">{edu.year}</div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* System Specs */}
+        {currentSection >= 1 && (
+          <motion.div
+            initial={{ opacity: 0, translateY: 20 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
             className="border border-red-400/30 bg-black/80 backdrop-blur-sm"
           >
             <div className="flex items-center px-4 py-2 border-b border-red-400/30 bg-red-900/10">
@@ -225,10 +285,10 @@ export default function About({onReturn}: AboutProps) {
 
             <div className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               {[
-                { icon: Shield, label: 'Security Rating', value: 'AAA+' },
-                { icon: Network, label: 'Network Access', value: 'Global' },
-                { icon: Code, label: 'Code Quality', value: '99.7%' },
-                { icon: Brain, label: 'AI Integration', value: 'Active' }
+                { icon: Shield, label: 'University Peer Mentor', value: 'Accredited' },
+                { icon: Network, label: 'Network Access', value: 'Github, Gitlab' },
+                { icon: Code, label: 'Code Quality', value: 'To be improved! Following PEP8!' },
+                { icon: Brain, label: 'Languages', value: 'Polish, English, Spanish (Basics)' }
               ].map((spec, index) => (
                 <motion.div
                   key={index}
@@ -243,7 +303,8 @@ export default function About({onReturn}: AboutProps) {
                 </motion.div>
               ))}
             </div>
-          </motion.div>)}
+          </motion.div>
+        )}
       </div>
     </div>
   )
