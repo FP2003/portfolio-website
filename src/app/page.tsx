@@ -154,7 +154,7 @@ export default function FrontPage() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 relative z-10 flex flex-col items-center justify-center px-6">
+      <main className="flex-1 relative z-10 w-full">
         {!isUnlocked ? (
           <LoginScreen
             isLoaded={isLoaded}
