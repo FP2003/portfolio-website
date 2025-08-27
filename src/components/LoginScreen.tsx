@@ -174,7 +174,7 @@ export default function LoginScreen({ passwordText = "NEURAL_LINK_ESTABLISHED", 
         >
           <div
             ref={panelRef}
-            className="relative bg-black/90 border-1 border-[#FF0000]/80 p-8 backdrop-blur-sm shadow-2xl shadow-[#FF0000]/30"
+            className="relative border border-red-400/30 bg-black/80 backdrop-blur-sm p-8"
           >
             {/* Horizontal glitch effect overlay */}
             <div className="absolute inset-0 opacity-5 pointer-events-none">
@@ -183,21 +183,21 @@ export default function LoginScreen({ passwordText = "NEURAL_LINK_ESTABLISHED", 
 
             {/* Centered title */}
             <div className="text-center mb-8 relative z-10">
-              <h1 className="text-2xl font-michroma text-[#FF0000] mb-3">
+              <h1 className="text-2xl font-michroma text-[#FF0000]/50 mb-3">
                 <span data-scramble>ARASAKA NEURAL INTERFACE</span>
               </h1>
-              <div className="text-[#FF0000] font-michroma text-sm">
+              <div className="text-[#FF0000]/50 font-michroma text-sm">
                 <span data-scramble>[ SECURITY PROTOCOL ACTIVE ]</span>
               </div>
             </div>
 
-            <div className="border-t-2 border-[#FF0000]/40 pt-6 mt-6 relative z-10">
-              <div className="text-[#FF0000] mb-4 text-xl text-center font-michroma">
+            <div className="border-t-1 border-[#FF0000]/50 pt-6 mt-6 relative z-10">
+              <div className="text-[#FF0000]/50 mb-4 text-xl text-center font-michroma">
                 <span data-scramble>ENTER_PASSWORD</span>
               </div>
               {!hasProceeded && (
-                <div className="bg-black/90 p-4 border-2 border-[#FF0000]/60 min-h-[50px] text-[#FF0000] font-bold text-xl font-mono relative overflow-hidden text-center">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FF0000]/10 to-transparent animate-pulse"></div>
+                <div className="bg-black/90 p-4 border-1 border-[#FF0000]/50 min-h-[50px] text-[#FF0000]/50 font-bold text-xl font-mono relative overflow-hidden text-center">
+                  <div className="absolute inset-0 bg-red-900/10 from-transparent via-[#FF0000]/10 to-transparent"></div>
                   <div className="relative z-10">
                     {passwordText}
                     <span className={`ml-2 transition-opacity ${showCursor ? "opacity-100" : "opacity-0"}`}>▓</span>
@@ -207,18 +207,18 @@ export default function LoginScreen({ passwordText = "NEURAL_LINK_ESTABLISHED", 
             </div>
 
             <div className="text-center mt-6 relative z-10">
-              <div className="text-base text-[#FF0000] mb-4 font-mono">
+              <div className="text-base text-[#FF0000]/50 mb-4 font-mono">
                 <span ref={promptRef} data-scramble>[ PRESS ANY KEY TO INITIALIZE ]</span>
               </div>
 
               <div className="flex justify-center space-x-6 text-sm font-mono">
                 <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-[#FF0000] animate-pulse"></div>
-                  <span className="text-[#FF0000]" data-scramble>SECURE</span>
+                  <div className="w-3 h-3 bg-[#FF0000]/70 animate-pulse"></div>
+                  <span className="text-[#FF0000]/50" data-scramble>SECURE</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-[#FF0000] animate-pulse"></div>
-                  <span className="text-[#FF0000]" data-scramble>ONLINE</span>
+                  <div className="w-3 h-3 bg-[#FF0000]/70 animate-pulse"></div>
+                  <span className="text-[#FF0000]/50" data-scramble>ONLINE</span>
                 </div>
               </div>
             </div>
