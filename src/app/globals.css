@@ -5,6 +5,7 @@
   --font-play: 'Play', 'Segoe UI', system-ui, sans-serif;
   --font-fira: 'Fira Code', 'Menlo', 'Monaco', 'Consolas', monospace;
   --font-quicksand: 'Quicksand', 'Segoe UI', system-ui, sans-serif;
+  --font-michroma: 'Michroma', 'Segoe UI', system-ui, sans-serif;
   /* Arasaka Corporate Color Palette */
   --color-primary: hsl(0, 0%, 95%); /* Near white for primary text */
   --color-secondary: hsl(0, 0%, 8%); /* Deep black for backgrounds */
@@ -41,6 +42,12 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-quicksand), var(--font-play), var(--font-fira), var(--font-sans);
+  /* Subtle texture for that corporate feel */
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
 /* Tailwind utilities for fonts */
 .font-play {
   font-family: var(--font-play);
@@ -51,14 +58,8 @@ body {
 .font-quicksand {
   font-family: var(--font-quicksand);
 }
-/* Tailwind utility for Play font */
-.font-play {
-  font-family: var(--font-play);
-}
-  /* Subtle texture for that corporate feel */
-  background-image: 
-    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0);
-  background-size: 20px 20px;
+.font-michroma {
+  font-family: var(--font-michroma);
 }
 
 /* 1. Hide all scrollbars but keep scrolling functionality */
@@ -87,6 +88,19 @@ body,
 
 #__next {
   min-height: 100vh;
+}
+
+@keyframes wave {
+  0%, 100% {
+    color: #333333;
+  }
+  50% {
+    color: #222222;
+  }
+}
+
+.animate-wave {
+  animation: wave 4s ease-in-out infinite;
 }
 
 @keyframes glitch {
@@ -138,4 +152,12 @@ body,
   left: -2px;
   text-shadow: -2px 0 cyan;
   animation-delay: 1s;
+}
+
+@keyframes colorShift {
+  0% { color: #550c0c; }
+  25% { color: #631616; }
+  50% { color: #bb2e1b; }
+  75% { color: #f12a2ae3; }
+  100% { color: #242323a4; }
 }
