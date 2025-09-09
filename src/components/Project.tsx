@@ -182,7 +182,6 @@ export default function Projects({ onReturn }: ProjectProps) {
                 </div>
 
                 <div>
-                    <h4 className="text-red-400 font-bold mb-2">Tags</h4>
                     <div className="flex flex-wrap gap-2">
                         {project.tags.map(tag => (
                             <span key={tag} className="text-xs bg-red-900/30 border border-red-400/30 px-2 py-1 text-red-300">
