@@ -142,7 +142,7 @@ export default function About({onReturn}: AboutProps) {
           >
             <div className="flex items-center px-4 py-2 border-b border-red-400/30 bg-red-900/10">
               <Brain className="w-4 h-4 mr-2" />
-              <span className="text-sm">NEURAL SKILL MATRIX</span>
+              <span className="text-sm">TECH STACK</span>
             </div>
 
             <div className="p-6">
@@ -287,7 +287,7 @@ export default function About({onReturn}: AboutProps) {
               {[
                 { icon: Shield, label: 'University Peer Mentor', value: 'Accredited' },
                 { icon: Network, label: 'Network Access', value: 'Github, Gitlab' },
-                { icon: Code, label: 'Code Quality', value: 'To be improved! Following PEP8!' },
+                { icon: Code, label: 'Code Quality', value: 'Following PEP8!' },
                 { icon: Brain, label: 'Languages', value: 'Polish, English, Spanish (Basics)' }
               ].map((spec, index) => (
                 <motion.div
