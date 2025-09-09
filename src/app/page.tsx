@@ -7,6 +7,7 @@ import NavBar from '../components/NavBar'
 import LoginScreen from '../components/LoginScreen'
 import Footer from '../components/Footer'
 import About from '@/components/About'
+import Project from '@/components/Project'
 
 export default function FrontPage() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -89,15 +90,7 @@ export default function FrontPage() {
         )
       case 'projects':
         return (
-          <motion.div
-            initial={{ opacity: 0, translateY: 20 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-red-500"
-          >
-            <h1 className="text-4xl font-mono mb-4">Projects Directory</h1>
-            <p>Projects page content will go here...</p>
-          </motion.div>
+          <Project onReturn={() => setCurrentPage(null)} />
         )
       case 'links':
         return (
