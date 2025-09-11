@@ -37,7 +37,7 @@ const allProjects = [
     status: 'Completed',
     url: 'https://github.com/FP2003/Polling-Web-System',
     imageSrc: '/images/arasaka.png',
-    tags: ['Node.js', 'Express', 'JavaScript']
+    tags: ['TypeScript', 'Next.js', 'React']
   }
 ]
 
@@ -176,11 +176,11 @@ export default function Projects({ onReturn }: ProjectProps) {
               initial={{ opacity: 0, translateY: 20 }}
               animate={{ opacity: 1, translateY: 0 }}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="border border-red-400/30 bg-black/80 relative min-h-[400px]"
+              className="relative min-h-[400px]"
               style={{ perspective: '1000px' }}
             >
               <div
-                className="relative w-full h-full"
+                className="relative w-full h-full border border-red-400/30 bg-black/80"
                 style={{
                   transformStyle: 'preserve-3d',
                   transition: 'transform 0.6s',
