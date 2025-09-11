@@ -44,9 +44,10 @@ export default function Projects({ onReturn }: ProjectProps) {
   const [showCursor, setShowCursor] = useState(true)
   const [showFilter, setShowFilter] = useState(false)
   const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const [typingDone, setTypingDone] = useState(false)
 
   const headerText = 'PROJECT PORTFOLIO'
-  const descriptionText = 'A collection of projects I have worked on, including web applications, data analysis tools, and mobile apps.'
+  const descriptionText = 'A collection of projects I have worked on, including web applications and data analysis tools.'
 
   useEffect(() => {
     let i = 0
@@ -56,6 +57,7 @@ export default function Projects({ onReturn }: ProjectProps) {
         i++
       } else {
         clearInterval(timer)
+        setTimeout(() => setTypingDone(true), 800)
       }
     }, 30)
     return () => clearInterval(timer)
@@ -156,11 +158,14 @@ export default function Projects({ onReturn }: ProjectProps) {
             </div>
             <div className="text-gray-300 min-h-[60px] pl-4 border-l-2 border-red-500/30 mt-2">
               {displayedText}
-              <span className={showCursor ? 'opacity-100' : 'opacity-0'}>█</span>
+              {!typingDone && (
+                <span className={showCursor ? 'opacity-100' : 'opacity-0'}>█</span>
+              )}
             </div>
           </div>
         </motion.div>
 
+        {typingDone && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -205,6 +210,7 @@ export default function Projects({ onReturn }: ProjectProps) {
             </motion.div>
           ))}
         </div>
+        )}
       </div>
     </div>
   )
