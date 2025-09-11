@@ -11,9 +11,9 @@ type ProjectProps = {
 const allProjects = [
   {
     name: 'Credit Scoring Tool',
-    description: 'University of Leicester Final Project Module. Installed full scale authentication using Firebase, including password and email reset, full settings panel and secure data storage. Utilised newsAPI to fetch and display news articles with filtering system. Credit Scoring model in Python, inspired by the FICO model, alongside my own touch and incorporating machine learning for prediction.',
+    description: 'Final project. Modern full-stack next.js project including authentication using Firebase, password and email reset, complete settings panel and secure data storage. Utilised newsAPI to fetch and display news articles with filtering system. Credit Scoring model in Python, inspired by the FICO model, alongside my own touch and incorporating machine learning for prediction.',
     status: 'Dissertation',
-    tags: ['TypeScript', 'Next.js', 'React', 'Python']
+    tags: ['TypeScript', 'Next.js', 'React', 'Python', 'Pandas', 'Numpy', 'Scikit-learn']
   },
   {
     name: 'Encryption File System',
@@ -24,18 +24,18 @@ const allProjects = [
     tags: ['Java', 'Hashing']
   },
   {
-    name: 'Project Gamma',
-    description: 'A mobile app developed with React Native for cross-platform compatibility on iOS and Android.',
-    status: 'Active',
-    url: 'https://github.com/user/project-gamma',
+    name: 'AirBnB Price Predictor',
+    description: 'Cleaned a dataset with over 65,000 rows and 31 columns, optimising data for model performance, clarity and retainment. Visualised data into appropriate graphs to compile and identify patterns in a 9 page report with reasonings as to why. Tested data with various machine learning models to find optimal accuracy which reached 94% with neural networks. Other machine learning models included: linear regression and xgboost. ',
+    status: 'Completed',
+    url: 'https://github.com/FP2003/AirBnB-Price-Prediction-System',
     imageSrc: '/images/arasaka.png',
-    tags: ['React Native', 'JavaScript']
+    tags: ['Python', 'Pandas', 'Numpy', 'Scikit-learn', 'TensorFlow']
   },
   {
-    name: 'Project Delta',
-    description: 'A backend service built with Node.js and Express, providing a RESTful API for data management.',
-    status: 'Active',
-    url: 'https://github.com/user/project-delta',
+    name: 'Polling Web App',
+    description: 'Full-stack petition application with a secure authentication system, sign-up forms using AJAX and Zod, Google Captcha verification, and a QR code scanner for a unique UD. A intuitive admin and user panel with dynamic information updates, petition creation, signature tracking, and automated petition response handling. Firebase for secure data storage and implemented graph visualisations to track petition and statistics.',
+    status: 'Completed',
+    url: 'https://github.com/FP2003/Polling-Web-System',
     imageSrc: '/images/arasaka.png',
     tags: ['Node.js', 'Express', 'JavaScript']
   }
@@ -176,7 +176,7 @@ export default function Projects({ onReturn }: ProjectProps) {
               initial={{ opacity: 0, translateY: 20 }}
               animate={{ opacity: 1, translateY: 0 }}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="border border-red-400/30 bg-black/80 relative min-h-[350px]"
+              className="border border-red-400/30 bg-black/80 relative min-h-[400px]"
               style={{ perspective: '1000px' }}
             >
               <div
@@ -219,9 +219,9 @@ export default function Projects({ onReturn }: ProjectProps) {
                     </div>
                   </div>
 
-                  <div className="p-6 space-y-4 flex-1 flex flex-col">
+                  <div className="px-6 pt-4 pb-6 space-y-2 flex-1 flex flex-col">
                     <div>
-                        <h4 className="text-red-400 font-bold mb-2">Description</h4>
+                        <h4 className="text-red-400/30 mb-2">Project Info</h4>
                         <p className="text-gray-300 text-sm leading-relaxed break-words">{project.description}</p>
                     </div>
 
