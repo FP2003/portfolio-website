@@ -12,16 +12,16 @@ const allProjects = [
   {
     name: 'Credit Scoring Tool',
     description: 'University of Leicester Final Project Module. Installed full scale authentication using Firebase, including password and email reset, full settings panel and secure data storage. Utilised newsAPI to fetch and display news articles with filtering system. Credit Scoring model in Python, inspired by the FICO model, alongside my own touch and incorporating machine learning for prediction.',
-    status: 'Completed',
+    status: 'Dissertation',
     tags: ['TypeScript', 'Next.js', 'React', 'Python']
   },
   {
-    name: 'Project Beta',
-    description: 'A data analysis tool using Python and Pandas to process large datasets efficiently.',
+    name: 'Encryption File System',
+    description: 'Development of end-to-end encrypted communication between client and server. Used RSA encryption and decryption to secure the communication. Also used AES encryption and decryption to secure the data. And finally used SHA-256 to hash the data.',
     status: 'Completed',
-    url: 'https://github.com/user/project-beta',
+    url: 'https://github.com/FP2003/Encryption-Decryption-System',
     imageSrc: '/images/arasaka.png',
-    tags: ['Python', 'Pandas']
+    tags: ['Java', 'Hashing']
   },
   {
     name: 'Project Gamma',
@@ -50,7 +50,7 @@ export default function Projects({ onReturn }: ProjectProps) {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null)
 
   const headerText = 'PROJECT PORTFOLIO'
-  const descriptionText = 'A collection of projects I have worked on, including web applications and data analysis tools.'
+  const descriptionText = 'A collection of projects I have worked on, including web applications and data analysis tools. Even... some cyber security.'
 
   useEffect(() => {
     let i = 0
@@ -176,7 +176,7 @@ export default function Projects({ onReturn }: ProjectProps) {
               initial={{ opacity: 0, translateY: 20 }}
               animate={{ opacity: 1, translateY: 0 }}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="border border-red-400/30 bg-black/80 relative min-h-[340px]"
+              className="border border-red-400/30 bg-black/80 relative min-h-[350px]"
               style={{ perspective: '1000px' }}
             >
               <div
@@ -198,7 +198,7 @@ export default function Projects({ onReturn }: ProjectProps) {
                         <span className="text-sm font-semibold">{project.name}</span>
                     </div>
                     <div className="flex items-center gap-4">
-                        <div className={`text-xs px-2 py-1 border ${project.status === 'Active' ? 'border-green-500/50 text-green-400' : 'border-gray-500/50 text-gray-400'}`}>
+                        <div className={`text-xs px-2 py-1 border ${project.status === 'Active' ? 'border-green-500/50 text-green-400' : project.status === 'Completed' ? 'border-blue-500/50 text-blue-400' : project.status === 'Dissertation' ? 'border-purple-500/50 text-purple-400' : 'border-gray-500/50 text-gray-400'}`}>
                             {project.status}
                         </div>
                         {project.url && (
@@ -225,10 +225,10 @@ export default function Projects({ onReturn }: ProjectProps) {
                         <p className="text-gray-300 text-sm leading-relaxed break-words">{project.description}</p>
                     </div>
 
-                    <div>
+                    <div className="mt-auto">
                         <div className="flex flex-wrap gap-2">
                             {project.tags.map(tag => (
-                                <span key={tag} className="text-xs bg-red-900/30 border border-red-400/30 px-2 py-1 text-red-300">
+                                <span key={tag} className="text-xs bg-red-900/30 border border-red-400/30 px-3 py-1 text-red-300">
                                     {tag}
                                 </span>
                             ))}
@@ -246,7 +246,7 @@ export default function Projects({ onReturn }: ProjectProps) {
                     <div className="flex items-center justify-between px-4 py-2 border-b border-red-400/30 bg-red-900/10">
                       <div className="flex items-center gap-2">
                         <Code className="w-4 h-4" />
-                        <span className="text-sm font-semibold">{project.name} — Preview</span>
+                        <span className="text-sm font-semibold">{project.name} — Image</span>
                       </div>
                       <button
                         onClick={(e) => {
