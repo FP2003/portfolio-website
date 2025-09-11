@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
-import { Terminal, Code, GitBranch, Star, Eye, Filter, X, Link } from 'lucide-react'
+import { Terminal, Code, Filter, X, Link } from 'lucide-react'
 
 type ProjectProps = {
   onReturn?: () => void
@@ -41,22 +41,29 @@ const allProjects = [
 
 export default function Projects({ onReturn }: ProjectProps) {
   const [displayedText, setDisplayedText] = useState('')
+  const [showCursor, setShowCursor] = useState(true)
   const [showFilter, setShowFilter] = useState(false)
   const [selectedTags, setSelectedTags] = useState<string[]>([])
 
   const headerText = 'PROJECT PORTFOLIO'
+  const descriptionText = 'A collection of projects I have worked on, including web applications, data analysis tools, and mobile apps.'
 
   useEffect(() => {
     let i = 0
     const timer = setInterval(() => {
-      if (i < headerText.length) {
-        setDisplayedText(headerText.slice(0, i + 1))
+      if (i < descriptionText.length) {
+        setDisplayedText(descriptionText.slice(0, i + 1))
         i++
       } else {
         clearInterval(timer)
       }
-    }, 100)
+    }, 30)
     return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    const cursorTimer = setInterval(() => setShowCursor(v => !v), 500)
+    return () => clearInterval(cursorTimer)
   }, [])
 
   const allTags = [...new Set(allProjects.flatMap(p => p.tags))]
@@ -105,7 +112,7 @@ export default function Projects({ onReturn }: ProjectProps) {
                 <div className="flex items-center gap-3">
                     <Code className="w-6 h-6 text-red-400" />
                     <h1 className="text-2xl font-bold text-red-400">
-                        {displayedText}
+                        {headerText}
                     </h1>
                 </div>
                 <div className="relative z-10">
@@ -146,6 +153,10 @@ export default function Projects({ onReturn }: ProjectProps) {
             
             <div className="text-red-500">
                 <span className="text-red-400">system@arasaka</span>:~$ ls -l projects/
+            </div>
+            <div className="text-gray-300 min-h-[60px] pl-4 border-l-2 border-red-500/30 mt-2">
+              {displayedText}
+              <span className={showCursor ? 'opacity-100' : 'opacity-0'}>█</span>
             </div>
           </div>
         </motion.div>
