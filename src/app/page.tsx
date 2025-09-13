@@ -8,6 +8,7 @@ import LoginScreen from '../components/LoginScreen'
 import Footer from '../components/Footer'
 import About from '@/components/About'
 import Project from '@/components/Project'
+import Contact from '@/components/Contact'
 
 export default function FrontPage() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -33,43 +34,9 @@ export default function FrontPage() {
     return () => clearInterval(cursorInterval)
   }, [])
 
-  // Start typing on any key or click
-  useEffect(() => {
-    const handler = (e: KeyboardEvent | MouseEvent) => {
-      // Check if the click came from the logout button or navigation
-      if (e.target && (e.target as Element).closest('[data-logout-action]')) {
-        return // Don't trigger password sequence for logout clicks
-      }
-      
-      if (!isUnlocked && isLoaded) {
-        e.preventDefault()
-        startPasswordSequence()
-      }
-    }
-    window.addEventListener("keydown", handler)
-    window.addEventListener("click", handler)
-    return () => {
-      window.removeEventListener("keydown", handler)
-      window.removeEventListener("click", handler)
-    }
-  }, [isLoaded, isUnlocked])
+  // No automatic triggers - user must click the button in LoginScreen
 
-  const startPasswordSequence = () => {
-    let idx = 0
-    const typer = setInterval(() => {
-      if (idx < fullPassword.length) {
-        setPasswordText(fullPassword.slice(0, idx + 1))
-        idx++
-      } else {
-        clearInterval(typer)
-        setTimeout(() => {
-          setIsUnlocked(true)
-          // Save unlocked state to localStorage
-          localStorage.setItem('arasaka_unlocked', 'true')
-        }, 800)
-      }
-    }, 80)
-  }
+  // Password sequence is now handled by LoginScreen component
 
   const handleNavigation = (page: string) => {
     setCurrentPage(page)
@@ -80,6 +47,10 @@ export default function FrontPage() {
     setPasswordText('')
     setCurrentPage(null)
     localStorage.removeItem('arasaka_unlocked')
+  }
+
+  const handleProceed = () => {
+    setIsUnlocked(true)
   }
 
   const renderCurrentPage = () => {
@@ -106,15 +77,7 @@ export default function FrontPage() {
         )
       case 'contact':
         return (
-          <motion.div
-            initial={{ opacity: 0, translateY: 20 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-red-500"
-          >
-            <h1 className="text-4xl font-mono mb-4">Contact Directory</h1>
-            <p>Contact page content will go here...</p>
-          </motion.div>
+          <Contact onReturn={() => setCurrentPage(null)} />
         )
       default:
         return (
@@ -150,9 +113,9 @@ export default function FrontPage() {
       <main className="flex-1 relative z-10 w-full">
         {!isUnlocked ? (
           <LoginScreen
-            isLoaded={isLoaded}
             passwordText={passwordText}
             showCursor={showCursor}
+            onProceed={handleProceed}
           />
         ) : (
           renderCurrentPage()
