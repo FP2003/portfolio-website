@@ -15,7 +15,6 @@ export default function NavBar({ onNavigate, onLogout }: NavBarProps) {
   const directories = [
     { name: 'about', label: 'About', icon: User, path: '/about' },
     { name: 'projects', label: 'Projects', icon: Briefcase, path: '/projects' },
-    { name: 'links', label: 'Links', icon: Link, path: '/links' },
     { name: 'contact', label: 'Contact', icon: Mail, path: '/contact' }
   ]
 
