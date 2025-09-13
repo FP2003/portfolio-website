@@ -43,6 +43,9 @@ export default function LoginScreen({ passwordText = "ARASAKA_NEURAL_LINK_AUTHOR
 
   // Typing effect for password - starts automatically when component loads
   useEffect(() => {
+    setDisplayedText('') // Reset displayed text
+    setTypingDone(false) // Reset typing done state
+    
     let i = 0
     const timer = setInterval(() => {
       if (i < passwordText.length) {
@@ -143,9 +146,9 @@ export default function LoginScreen({ passwordText = "ARASAKA_NEURAL_LINK_AUTHOR
                 <h1 className="text-3xl font-bold text-red-400">WELCOME TO MY PORTFOLIO V1</h1>
               </div>
               
-              <div className="space-y-2 mb-6">
+              <div className="mb-2">
                 <div className="text-red-500">
-                  <span className="text-red-400">system@portfolio</span>
+                  <span className="text-red-500/60 font-bold text-[20px]">PASSWORD</span>
                 </div>
               </div>
 
