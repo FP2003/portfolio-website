@@ -32,7 +32,7 @@ export default function Contact({ onReturn }: ContactProps) {
   const [formStatus, setFormStatus] = useState<FormStatus>('idle')
   const [errors, setErrors] = useState<Partial<FormData>>({})
 
-  const headerText = 'CONTACT PROTOCOL'
+  const headerText = 'CONTACT'
   const descriptionText = 'Feel free to get in contact with me, I will look to respond in record time of less than 24 hours... But times may vary across the year.'
 
   // Typing effect for description
@@ -162,10 +162,10 @@ export default function Contact({ onReturn }: ContactProps) {
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-red-500 animate-pulse"></div>
               <Terminal className="w-4 h-4" />
-              <span className="text-sm">arasaka-comm://secure/contact.dat</span>
+              <span className="text-sm">/secure/contact.dat</span>
             </div>
             <div className="text-xs text-red-400">
-                SECURE CHANNEL - LEVEL 3
+                2025
                 {onReturn && (
                 <button
                   onClick={onReturn}
@@ -187,7 +187,7 @@ export default function Contact({ onReturn }: ContactProps) {
             
             <div className="space-y-2">
               <div className="text-red-500">
-                <span className="text-red-400">system@arasaka</span>:~$ cat contact_protocol.txt
+                <span className="text-red-400"></span>~$ cat contact_protocol.txt
               </div>
               <div className="text-gray-300 min-h-[60px] pl-4 border-l-2 border-red-500/30">
                 {displayedText}
