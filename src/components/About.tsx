@@ -15,7 +15,6 @@ export default function About({onReturn}: AboutProps) {
 
   const bioText = "Computer science graduate with hands-on experience in web development, data analytics, and software development. Passionate about emerging technologies like machine learning and scalable systems, and eager to contribute to innovative projects while expanding expertise."
 
-  // Typing effect for bio
   useEffect(() => {
     if (currentSection === 0) {
       let i = 0
@@ -32,17 +31,19 @@ export default function About({onReturn}: AboutProps) {
     }
   }, [currentSection])
 
-  // Cursor blink
   useEffect(() => {
     const cursorTimer = setInterval(() => setShowCursor(v => !v), 500)
     return () => clearInterval(cursorTimer)
   }, [])
 
   const skills = [
-    { name: 'Python', level: 78, category: 'Language' },
-    { name: 'Windows/Linux/MacOS', level: 80, category: 'Operating Systems' },
-    { name: 'React/Next.js [ Typescript ]', level: 84, category: 'Frontend' },
-    { name: 'Java', level: 55, category: 'Language' },
+    { name: 'Python', category: 'Main Language' },
+    { name: 'Windows', category: 'Main OS' },
+    { name: 'Typescript', category: 'Commonly Used' },
+    { name: 'Java', category: 'Experienced Language' },
+    { name: 'Linux', category: 'Learning OS'},
+    { name: 'MacOS', category: 'Experienced OS'},
+    { name: 'Git', category: 'Experienced'}
   ]
 
   const experience = [
@@ -155,23 +156,11 @@ export default function About({onReturn}: AboutProps) {
                     transition={{ duration: 0.8, delay: 0.1 * index }}
                     className="space-y-2"
                   >
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center px-4">
                       <span className="text-red-400 text-sm">{skill.name}</span>
                       <div className="flex items-center gap-2">
                         <span className="text-xs text-gray-500">{skill.category}</span>
-                        <span className="text-red-300 text-xs">{skill.level}%</span>
                       </div>
-                    </div>
-                    <div className="w-full bg-gray-800 rounded-none h-2 border border-red-500/20">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1.2, delay: 0.2 * index }}
-                        className="h-full bg-gradient-to-r from-red-600 to-red-400"
-                        style={{
-                          boxShadow: '0 0 10px rgba(239, 68, 68, 0.3)'
-                        }}
-                      />
                     </div>
                   </motion.div>
                 ))}
@@ -271,7 +260,7 @@ export default function About({onReturn}: AboutProps) {
         )}
 
         {/* System Specs */}
-        {currentSection >= 1 && (
+        {/* {currentSection >= 1 && (
           <motion.div
             initial={{ opacity: 0, translateY: 20 }}
             animate={{ opacity: 1, translateY: 0 }}
@@ -304,7 +293,7 @@ export default function About({onReturn}: AboutProps) {
               ))}
             </div>
           </motion.div>
-        )}
+        )} */}
       </div>
     </div>
   )
