@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { ChevronRight, Folder, FolderOpen, Terminal, User, Briefcase, Link, Mail } from 'lucide-react'
+import { ChevronRight, Folder, FolderOpen, Terminal, User, Briefcase, Mail } from 'lucide-react'
 
 export interface NavBarProps {
     onNavigate?: (page: string) => void
