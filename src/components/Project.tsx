@@ -49,7 +49,7 @@ export default function Projects({ onReturn }: ProjectProps) {
   const [typingDone, setTypingDone] = useState(false)
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null)
 
-  const headerText = 'PROJECT PORTFOLIO'
+  const headerText = 'PROJECTS'
   const descriptionText = 'A collection of projects I have worked on, including web applications and data analysis tools. Even... some cyber security.'
 
   useEffect(() => {
@@ -96,10 +96,10 @@ export default function Projects({ onReturn }: ProjectProps) {
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-red-500 animate-pulse"></div>
               <Terminal className="w-4 h-4" />
-              <span className="text-sm">arasaka-projects-db://projects/all.dat</span>
+              <span className="text-sm">/projects/all.dat</span>
             </div>
             <div className="text-xs text-red-400">
-                CLASSIFIED - LEVEL 5
+                2025
                 {onReturn && (
                 <button
                   onClick={onReturn}
@@ -157,7 +157,7 @@ export default function Projects({ onReturn }: ProjectProps) {
             </div>
             
             <div className="text-red-500">
-                <span className="text-red-400">system@arasaka</span>:~$ ls -l projects/
+                <span className="text-red-400"></span>~$ ls -l projects/
             </div>
             <div className="text-gray-300 min-h-[60px] pl-4 border-l-2 border-red-500/30 mt-2">
               {displayedText}
