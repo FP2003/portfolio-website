@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
-import { Terminal, User, Code, Brain, Shield, Database, Cpu, Network } from 'lucide-react'
+import { Terminal, User, Brain, Shield, Database } from 'lucide-react'
 
 type AboutProps = {
   onReturn?: () => void
@@ -39,11 +39,12 @@ export default function About({onReturn}: AboutProps) {
   const skills = [
     { name: 'Python', category: 'Main Language' },
     { name: 'Windows', category: 'Main OS' },
-    { name: 'Typescript', category: 'Commonly Used' },
+    { name: 'Typescript', category: 'Common Web Development' },
+    { name: 'React/Next', category: 'Common Web Development'},
     { name: 'Java', category: 'Experienced Language' },
     { name: 'Linux', category: 'Learning OS'},
     { name: 'MacOS', category: 'Experienced OS'},
-    { name: 'Git', category: 'Experienced'}
+    { name: 'Git', category: 'Experienced'},
   ]
 
   const experience = [
@@ -98,10 +99,10 @@ export default function About({onReturn}: AboutProps) {
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-red-500 animate-pulse"></div>
               <Terminal className="w-4 h-4" />
-              <span className="text-sm">arasaka-personnel-file://user/profile.dat</span>
+              <span className="text-sm">file://user/profile.dat</span>
             </div>
             <div className="text-xs text-red-400">
-                CLASSIFIED - LEVEL 7
+                2025
                 {onReturn && (
                 <button
                   onClick={onReturn}
@@ -118,12 +119,12 @@ export default function About({onReturn}: AboutProps) {
           <div className="p-6">
             <div className="flex items-center gap-3 mb-4">
               <User className="w-6 h-6 text-red-400" />
-              <h1 className="text-2xl font-bold text-red-400">PERSONNEL PROFILE - FILIP PIELECKI</h1>
+              <h1 className="text-2xl font-bold text-red-400">FILIP PIELECKI</h1>
             </div>
             
             <div className="space-y-2">
               <div className="text-red-500">
-                <span className="text-red-400">system@arasaka</span>:~$ cat personal_bio.txt
+                <span className="text-red-400"></span>~$ cat personal_bio.txt
               </div>
               <div className="text-gray-300 min-h-[60px] pl-4 border-l-2 border-red-500/30">
                 {displayedText}
