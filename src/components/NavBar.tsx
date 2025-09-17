@@ -24,14 +24,14 @@ export default function NavBar({ onNavigate, onLogout }: NavBarProps) {
   }
 
   return (
-    <div className="h-screen flex flex-col bg-black text-red-500 font-mono p-6">
+    <div className="h-screen flex flex-col bg-black text-red-500 font-mono py-6 px-36">
       {/* Terminal Header */}
       <div className="flex flex-col flex-1 border border-red-400/30 bg-black/80 backdrop-blur-sm">
         <div className="flex items-center justify-between px-4 py-2 border-b border-red-400/30 bg-red-900/10">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-red-500 animate-pulse"></div>
             <Terminal className="w-4 h-4" />
-            <span className="text-sm">root@arasaka-system:/home/user$</span>
+            <span className="text-sm">/home/user$</span>
           </div>
           
           {/* Logout Button - Top Right */}
@@ -53,12 +53,11 @@ export default function NavBar({ onNavigate, onLogout }: NavBarProps) {
             {/* Welcome Message */}
             <div className="space-y-2">
               <div className="text-red-500">
-                <span className="text-red-400">user@arasaka-system</span>:~$ ls -la
+                <span className="text-red-400">FILIP </span>:~$ ls -la
               </div>
               <div className="text-gray-400 text-sm">
-                total 4<br/>
-                drwxr-xr-x 6 user user 4096 Aug 04 2025 .<br/>
-                drwxr-xr-x 3 root root 4096 Aug 04 2025 ..<br/>
+                welcome to the portfolio<br/>
+                have a look around<br/>
               </div>
             </div>
 
@@ -84,13 +83,6 @@ export default function NavBar({ onNavigate, onLogout }: NavBarProps) {
                   >
                     <div className="flex items-center gap-3">
                       <div className="flex items-center gap-2 text-sm">
-                        <span className="text-gray-500">drwxr-xr-x</span>
-                        <span className="text-gray-500">2</span>
-                        <span className="text-gray-500">user</span>
-                        <span className="text-gray-500">user</span>
-                        <span className="text-gray-500">4096</span>
-                        <span className="text-gray-500">Aug 04</span>
-                        <span className="text-gray-500">12:00</span>
                       </div>
                       
                       <div className="flex items-center gap-2">
@@ -124,7 +116,7 @@ export default function NavBar({ onNavigate, onLogout }: NavBarProps) {
           {/* Command Prompt - Above System Info */}
           <div className="border-t border-red-400/20 p-4 bg-black/30">
             <div className="flex items-center gap-2">
-              <span className="text-red-500">user@arasaka-system</span>
+              <span className="text-red-500">system</span>
               <span className="text-red-500">:</span>
               <span className="text-red-400">~</span>
               <span className="text-red-500">$</span>

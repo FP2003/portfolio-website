@@ -9,7 +9,7 @@ const quicksand = Quicksand({ subsets: ['latin'], weight: ['300', '400', '500', 
 
 export const metadata: Metadata = {
   title: 'Filip Pielecki',
-  description: 'Portfolio showcasing my work and skills',
+  description: 'Portfolio',
 }
 
 export default function RootLayout({
